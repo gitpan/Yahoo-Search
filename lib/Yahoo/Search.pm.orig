@@ -1,7 +1,4 @@
 package Yahoo::Search;
-BEGIN {
-  $Yahoo::Search::VERSION = '1.11.1';
-}
 use strict;
 use Carp;
 use Yahoo::Search::Request;
@@ -9,6 +6,8 @@ use Yahoo::Search::Request;
 ##
 ## This is the interface to Yahoo!'s web search API.
 ## Written by Jeffrey Friedl <jfriedl@yahoo.com>
+##
+## Copyright 2007 Yahoo! Inc.
 ##
 ## Master source:
 ##
@@ -1100,10 +1099,6 @@ __END__
 =head1 NAME
 
 Yahoo::Search - Perl interface to the Yahoo! Search public API.
-
-=head1 VERSION
-
-version 1.11.1
 
 The following search spaces are supported:
 
@@ -2222,6 +2217,10 @@ C<$Yahoo::Search::UseXmlSimple> defaults to true. See above.
 Yahoo::Search uses LWP to communicate with Yahoo!'s servers; LWP uses
 environment variables such as C<http_proxy> and C<no_proxy>. See the
 perldoc for LWP for more.
+
+=head1 Copyright
+
+Copyright 2007 Yahoo! Inc.
 
 =head1 Author
 

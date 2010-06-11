@@ -1,7 +1,10 @@
 package Yahoo::Search::XML;
 use strict;
+use Encode;
 
 our $VERSION = "20060729.004";
+
+my %enc_cache;
 
 ##
 ## Version history:
@@ -18,6 +21,10 @@ our $VERSION = "20060729.004";
 
 =head1 NAME
 
+
+=head1 VERSION
+
+version 1.11.1
 Yahoo::Search::XML -- Simple routines for parsing XML from Yahoo! Search.
 (This package is included in, and automatically loaded by, the
 Yahoo::Search package.)
@@ -149,8 +156,10 @@ sub _entity($)
     my $name = shift;
     if (my $val = $EntityDecode{$name}) {
         return $val;
-    } elsif ($val =~ m/^#(\d+)$/) {
+    } elsif ($name =~ m/^#(\d+)$/) {
         return chr($1);
+    } elsif ($name =~ m/^#x([0-9a-f]+)$/i) {
+        return chr(hex($1));
     } else {
         _error(__LINE__, "unknown entity &$name;");
     }
@@ -169,8 +178,18 @@ sub Parse($)
 
     @stack = {};
 
-    ## skip past the leading <?xml> tag
-    $xml =~ m/\A <\?xml.*?> /xgcs;
+    ## skip past the leading <?xml version="1.0" encoding="UTF-8"?> tag
+    if ($xml =~ m/\A <\?xml(.*?)> /xgcs) {
+        my $xml_header = $1;
+        if ($xml_header =~ /encoding="(.*?)"/) {
+            my $enc = $enc_cache{$1} = find_encoding($1);
+            # decode the bytes into a perl utf8 string
+            # taking care to preserve the pos-ition.
+            my $pos = pos($xml);
+            $xml = $enc->decode($xml);
+            pos($xml) = $pos;
+        }
+    }
 
     while (pos($xml) < length($xml))
     {
@@ -249,4 +268,3 @@ sub Parse($)
 }
 
 1;
-

@@ -6,6 +6,10 @@ our $VERSION = "20070320.002"; # just to make CPAN happy
 
 =head1 NAME
 
+
+=head1 VERSION
+
+version 1.11.1
 Yahoo::Search::Response -- Container object for the result set of one query
 to the Yahoo! Search API.
 (This package is included in, and automatically loaded by, the Yahoo::Search package.)
@@ -685,10 +689,6 @@ sub SpellResponse
 =pod
 
 =back
-
-=head1 Copyright
-
-Copyright Yahoo! Inc
 
 =head1 Author
 
