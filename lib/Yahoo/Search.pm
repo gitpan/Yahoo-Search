@@ -2227,4 +2227,12 @@ perldoc for LWP for more.
 
 Jeffrey Friedl (jfriedl@yahoo.com)
 
+Jeffrey placed the 1.10.13 code in the public domain (or, technically, the
+http://creativecommons.org/publicdomain/zero/1.0/ licence) on June 11th 2010.
+Tim Bunce (Tim.Bunce@pobox.com) currently maintains the code, though with very
+little spare much time. He's very happy for someone else to help out.
+
+Please use https://rt.cpan.org/Dist/Display.html?Queue=Yahoo-Search to
+submit bug reports.
+
 =cut

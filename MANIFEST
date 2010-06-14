@@ -7,7 +7,6 @@ Makefile.PL
 README
 dist.ini
 lib/Yahoo/Search.pm
-lib/Yahoo/Search.pm.orig
 lib/Yahoo/Search/Request.pm
 lib/Yahoo/Search/Response.pm
 lib/Yahoo/Search/Result.pm
