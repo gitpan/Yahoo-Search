@@ -8,7 +8,7 @@ our $VERSION = "20100611.002"; # just to make CPAN happy
 
 =head1 VERSION
 
-version 1.11.1
+version 1.11.2
 Yahoo::Search::Result -- class representing a single result (single web
 page, image, video file, etc) from a Yahoo! search-engine query.
 (This package is included in, and automatically loaded by, the Yahoo::Search package.)

@@ -2,7 +2,7 @@ package Yahoo::Search::XML;
 use strict;
 use Encode;
 
-our $VERSION = "20100611.004";
+our $VERSION = "20100614.1";
 
 my %enc_cache;
 
@@ -24,7 +24,7 @@ my %enc_cache;
 
 =head1 VERSION
 
-version 1.11.1
+version 1.11.2
 Yahoo::Search::XML -- Simple routines for parsing XML from Yahoo! Search.
 (This package is included in, and automatically loaded by, the
 Yahoo::Search package.)
@@ -48,7 +48,7 @@ having to handle everything, I guess.
 
 =head1 AUTHOR
 
-Jeffrey Friedl <jfriedl@yahoo.com>
+Jeffrey Friedl
 Kyoto, Japan
 Feb 2005
 
@@ -181,14 +181,15 @@ sub Parse($)
     ## skip past the leading <?xml version="1.0" encoding="UTF-8"?> tag
     if ($xml =~ m/\A <\?xml(.*?)> /xgcs) {
         my $xml_header = $1;
-        if ($xml_header =~ /encoding="(.*?)"/) {
-            my $enc = $enc_cache{$1} = find_encoding($1);
-            # decode the bytes into a perl utf8 string
-            # taking care to preserve the pos-ition.
-            my $pos = pos($xml);
-            $xml = $enc->decode($xml);
-            pos($xml) = $pos;
-        }
+        # XXX doesn't handle BOM, just assumes UTF-8 if not explicit
+        # (some yahoo services don't include an explicit encoding)
+        my $encoding = ($xml_header =~ /encoding="(.*?)"/) ? $1 : "UTF-8";
+        my $enc = $enc_cache{$encoding} = find_encoding($encoding);
+        # decode the bytes into a perl utf8 string
+        # taking care to preserve the pos-ition.
+        my $pos = pos($xml);
+        $xml = $enc->decode($xml);
+        pos($xml) = $pos;
     }
 
     while (pos($xml) < length($xml))

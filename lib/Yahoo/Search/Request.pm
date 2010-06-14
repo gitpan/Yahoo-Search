@@ -30,7 +30,7 @@ sub _have_XML_Simple
 
 =head1 VERSION
 
-version 1.11.1
+version 1.11.2
 Yahoo::Search::Request -- Container object for a Yahoo! Search request.
 (This package is included in, and automatically loaded by, the Yahoo::Search package.)
 

@@ -1,6 +1,6 @@
 package Yahoo::Search;
 BEGIN {
-  $Yahoo::Search::VERSION = '1.11.1';
+  $Yahoo::Search::VERSION = '1.11.2';
 }
 use strict;
 use Carp;
@@ -1103,7 +1103,7 @@ Yahoo::Search - Perl interface to the Yahoo! Search public API.
 
 =head1 VERSION
 
-version 1.11.1
+version 1.11.2
 
 The following search spaces are supported:
 
