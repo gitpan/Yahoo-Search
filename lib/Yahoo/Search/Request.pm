@@ -7,7 +7,7 @@ use LWP::UserAgent;
 use HTTP::Request;
 use URI;
 
-our $VERSION = "20100611.002"; # just to make CPAN happy
+our $VERSION = "20100614.1"; # just to make CPAN happy
 
 
 my $have_XML_Simple; # undef means 'not yet tested'
@@ -30,7 +30,7 @@ sub _have_XML_Simple
 
 =head1 VERSION
 
-version 1.11.2
+version 1.11.3
 Yahoo::Search::Request -- Container object for a Yahoo! Search request.
 (This package is included in, and automatically loaded by, the Yahoo::Search package.)
 

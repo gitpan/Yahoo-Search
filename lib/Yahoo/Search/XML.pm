@@ -24,7 +24,7 @@ my %enc_cache;
 
 =head1 VERSION
 
-version 1.11.2
+version 1.11.3
 Yahoo::Search::XML -- Simple routines for parsing XML from Yahoo! Search.
 (This package is included in, and automatically loaded by, the
 Yahoo::Search package.)

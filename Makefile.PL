@@ -21,12 +21,11 @@ my %WriteMakefileArgs = (
   'NAME' => 'Yahoo::Search',
   'PREREQ_PM' => {
     'Encode' => '0',
-    'HTTP::Request' => '5.835',
-    'LWP::UserAgent' => '5.835',
+    'LWP' => '5.835',
     'Test::More' => '0.86',
     'URI' => '1.54'
   },
-  'VERSION' => '1.11.2',
+  'VERSION' => '1.11.3',
   'test' => {
     'TESTS' => 't/*.t'
   }
